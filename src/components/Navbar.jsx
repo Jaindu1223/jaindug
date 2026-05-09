@@ -10,12 +10,14 @@ const Navbar = () => {
       className="fixed top-0 w-full z-50 glass border-b border-white/10"
     >
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <a href="#" className="text-xl font-bold tracking-tighter text-glow">
-          JG.
+        <a href="#" className="flex items-center">
+          <img src="/logo.png" alt="JG Logo" className="h-12 w-auto hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_10px_rgba(34,211,238,0.5)]" />
         </a>
         <div className="flex items-center gap-8">
           <div className="hidden md:flex items-center space-x-8">
             <a href="#home" className="text-sm text-gray-300 hover:text-white transition-colors">Home</a>
+            <a href="#experience" className="text-sm text-gray-300 hover:text-white transition-colors">Experience</a>
+            <a href="#education" className="text-sm text-gray-300 hover:text-white transition-colors">Education</a>
             <a href="#projects" className="text-sm text-gray-300 hover:text-white transition-colors">Projects</a>
             <a href="#contact" className="text-sm text-gray-300 hover:text-white transition-colors">Contact</a>
           </div>

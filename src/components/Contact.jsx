@@ -6,7 +6,7 @@ const Contact = () => {
   return (
     <section id="contact" className="py-32 relative z-10">
       <div className="max-w-4xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -20,7 +20,7 @@ const Contact = () => {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <a
-              href="https://wa.me/YOUR_NUMBER"
+              href="https://wa.me/+94779523699"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 text-base font-bold text-white bg-green-500/20 border border-green-500/50 rounded-xl overflow-hidden transition-all hover:bg-green-500/30 hover:shadow-[0_0_20px_rgba(34,197,94,0.3)]"
@@ -31,7 +31,7 @@ const Contact = () => {
             </a>
 
             <a
-              href="mailto:YOUR_EMAIL"
+              href="mailto:gajanayakejs@gmail.com"
               className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 text-base font-bold text-white bg-primary/20 border border-primary/50 rounded-xl overflow-hidden transition-all hover:bg-primary/30 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400/0 via-blue-400/10 to-blue-400/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />

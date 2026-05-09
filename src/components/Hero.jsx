@@ -72,7 +72,7 @@ const Hero = () => {
             </div>
 
             <p className="mt-8 text-lg text-gray-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Results-driven Software Engineering undergraduate with 4+ years of technical background and professional industry experience. Adept at thriving in Agile environments, leveraging strong problem-solving skills to deliver high-quality, user-centric applications.
+              Results-driven Software Engineering undergraduate with 3+ years of technical background and 1 year of professional industry experience. Adept at thriving in Agile environments, leveraging strong problem-solving skills to deliver high-quality, user-centric applications.
             </p>
           </motion.div>
 
@@ -87,13 +87,13 @@ const Hero = () => {
               <a href="https://github.com/Jaindu1223" target="_blank" rel="noopener noreferrer" className="p-3.5 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-black hover:bg-cyan-400 hover:border-cyan-400 hover:scale-110 hover:shadow-[0_0_20px_rgba(34,211,238,0.5)] transition-all duration-300">
                 <Github className="w-5 h-5" />
               </a>
-              <a href="https://linkedin.com/in/jaindugajanayake" target="_blank" rel="noopener noreferrer" className="p-3.5 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-black hover:bg-cyan-400 hover:border-cyan-400 hover:scale-110 hover:shadow-[0_0_20px_rgba(34,211,238,0.5)] transition-all duration-300">
+              <a href="https://www.linkedin.com/in/jaindugajanayake" target="_blank" rel="noopener noreferrer" className="p-3.5 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-black hover:bg-cyan-400 hover:border-cyan-400 hover:scale-110 hover:shadow-[0_0_20px_rgba(34,211,238,0.5)] transition-all duration-300">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="p-3.5 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-black hover:bg-cyan-400 hover:border-cyan-400 hover:scale-110 hover:shadow-[0_0_20px_rgba(34,211,238,0.5)] transition-all duration-300">
+              <a href="https://www.instagram.com/jaizz___?igsh=OHduNHN6djA0bGFt&utm_source=qr" target="_blank" rel="noopener noreferrer" className="p-3.5 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-black hover:bg-cyan-400 hover:border-cyan-400 hover:scale-110 hover:shadow-[0_0_20px_rgba(34,211,238,0.5)] transition-all duration-300">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="p-3.5 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-black hover:bg-cyan-400 hover:border-cyan-400 hover:scale-110 hover:shadow-[0_0_20px_rgba(34,211,238,0.5)] transition-all duration-300">
+              <a href="https://www.facebook.com/share/1EwjYhcE11/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="p-3.5 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-black hover:bg-cyan-400 hover:border-cyan-400 hover:scale-110 hover:shadow-[0_0_20px_rgba(34,211,238,0.5)] transition-all duration-300">
                 <Facebook className="w-5 h-5" />
               </a>
             </div>

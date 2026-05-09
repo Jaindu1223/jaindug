@@ -1,6 +1,8 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import WorkExperience from './components/WorkExperience';
+import AcademicJourney from './components/AcademicJourney';
 import Projects from './components/Projects';
 import TechStack from './components/TechStack';
 import Certificates from './components/Certificates';
@@ -8,6 +10,7 @@ import Competitions from './components/Competitions';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CursorTrail from './components/CursorTrail';
+import SectionDivider from './components/SectionDivider';
 
 function App() {
   return (
@@ -23,10 +26,19 @@ function App() {
         <Navbar />
         <main className="flex-grow">
           <Hero />
+          <SectionDivider />
+          <WorkExperience />
+          <SectionDivider />
+          <AcademicJourney />
+          <SectionDivider />
           <Projects />
+          <SectionDivider />
           <TechStack />
+          <SectionDivider />
           <Certificates />
+          <SectionDivider />
           <Competitions />
+          <SectionDivider />
           <Contact />
         </main>
         <Footer />
