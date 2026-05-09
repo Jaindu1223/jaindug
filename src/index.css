@@ -6,6 +6,7 @@
   html {
     scroll-behavior: smooth;
   }
+
   body {
     @apply bg-background text-white antialiased selection:bg-primary/30;
   }
@@ -13,11 +14,13 @@
 
 @layer utilities {
   .glass {
-    @apply bg-surface/40 backdrop-blur-md border border-white/10;
+    @apply bg-surface border border-white/10 shadow-lg;
   }
+
   .glass-card {
-    @apply bg-surface/60 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)];
+    @apply bg-surface border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)];
   }
+
   .text-glow {
     text-shadow: 0 0 20px theme('colors.primaryGlow');
   }

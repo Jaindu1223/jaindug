@@ -30,9 +30,9 @@ const AcademicJourney = () => {
   return (
     <section id="education" className="py-32 relative z-10 bg-black/20">
       <div className="max-w-7xl mx-auto px-6">
-        
+
         {/* Section Header */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -52,13 +52,13 @@ const AcademicJourney = () => {
         <div className="hidden md:flex relative w-full items-center justify-between h-[350px] mt-24">
           {/* Horizontal Line */}
           <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent -translate-y-1/2" />
-          
+
           {education.map((edu, idx) => {
             const isTop = idx % 2 === 0;
             const Icon = edu.icon;
             return (
-              <motion.div 
-                key={edu.id} 
+              <motion.div
+                key={edu.id}
                 initial={{ opacity: 0, y: isTop ? -30 : 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -67,7 +67,7 @@ const AcademicJourney = () => {
               >
                 {/* Dot */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.8)] border-4 border-[#0B0F19] z-20" />
-                
+
                 {/* Connector Line to Card */}
                 <div className={`absolute left-1/2 -translate-x-1/2 w-0.5 bg-cyan-400/30 h-12 ${isTop ? 'bottom-1/2' : 'top-1/2'}`} />
 
@@ -91,11 +91,11 @@ const AcademicJourney = () => {
         <div className="md:hidden relative flex flex-col space-y-12 py-8 ml-4">
           {/* Vertical Line */}
           <div className="absolute left-[11px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400/50 via-cyan-400/20 to-transparent" />
-          
+
           {education.map((edu, idx) => {
             const Icon = edu.icon;
             return (
-              <motion.div 
+              <motion.div
                 key={edu.id}
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -105,7 +105,7 @@ const AcademicJourney = () => {
               >
                 {/* Dot */}
                 <div className="absolute left-0 top-6 -translate-x-[5px] w-4 h-4 rounded-full bg-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.8)] border-4 border-[#0B0F19] z-10" />
-                
+
                 {/* Card */}
                 <div className="w-full bg-surface/80 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(34,211,238,0.15)] hover:border-cyan-400/50">
                   <div className="w-10 h-10 rounded-lg bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center mb-4">

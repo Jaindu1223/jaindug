@@ -28,7 +28,7 @@ const TechStack = () => {
   return (
     <section id="tech-stack" className="py-32 relative z-10">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -51,12 +51,12 @@ const TechStack = () => {
             >
               {/* Background gradient blob */}
               <div className={`absolute -right-20 -top-20 w-48 h-48 bg-gradient-to-br ${category.color} rounded-full blur-[80px] opacity-20 group-hover:opacity-40 transition-opacity duration-500`} />
-              
+
               <h3 className="text-2xl font-bold text-white mb-6 relative z-10">{category.title}</h3>
-              
+
               <div className="flex flex-wrap gap-3 relative z-10">
                 {category.skills.map((skill, i) => (
-                  <div 
+                  <div
                     key={i}
                     className="px-4 py-2 bg-surface/80 border border-white/10 rounded-xl text-sm font-medium text-gray-300 shadow-lg hover:text-white hover:border-white/30 hover:-translate-y-1 transition-all duration-300"
                     style={{ transformStyle: 'preserve-3d' }}

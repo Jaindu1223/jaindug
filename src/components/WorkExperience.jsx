@@ -40,9 +40,9 @@ const WorkExperience = () => {
   return (
     <section id="experience" className="py-32 relative z-10">
       <div className="max-w-5xl mx-auto px-6">
-        
+
         {/* Section Header */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -65,7 +65,7 @@ const WorkExperience = () => {
           {/* Experience Items */}
           <div className="space-y-12">
             {experiences.map((exp, index) => (
-              <motion.div 
+              <motion.div
                 key={exp.id}
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -79,7 +79,7 @@ const WorkExperience = () => {
                 {/* Content Card */}
                 <div className="bg-surface/50 backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:p-8 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(34,211,238,0.3)] hover:border-cyan-400/60 group">
                   <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-6">
-                    
+
                     {/* Header Info */}
                     <div className="flex gap-4">
                       <div className="w-12 h-12 rounded-xl bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
@@ -121,7 +121,7 @@ const WorkExperience = () => {
                   {exp.tags.length > 0 && (
                     <div className="flex flex-wrap gap-2">
                       {exp.tags.map((tag, i) => (
-                        <span 
+                        <span
                           key={i}
                           className="px-3 py-1.5 text-xs font-medium text-gray-300 bg-white/5 border border-white/10 rounded-full hover:bg-cyan-400/10 hover:text-cyan-400 hover:border-cyan-400/30 transition-colors"
                         >

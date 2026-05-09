@@ -230,7 +230,7 @@ const Projects = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className={`w-full h-full transition-transform duration-700 group-hover:scale-110 ${project.id === 1 || project.id === 2 || project.id === 4 ? 'object-contain' : 'object-cover'}`}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   {/* Hover Overlay Content */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 flex flex-col justify-end p-6">

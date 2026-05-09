@@ -66,16 +66,16 @@ const CursorTrail = () => {
 
         if (distance < mouse.radius + this.size) {
           if (mouse.x < this.x && this.x < canvas.width - this.size * 10) {
-            this.x += 10;
+            this.x += 1.5;
           }
           if (mouse.x > this.x && this.x > this.size * 10) {
-            this.x -= 10;
+            this.x -= 1.5;
           }
           if (mouse.y < this.y && this.y < canvas.height - this.size * 10) {
-            this.y += 10;
+            this.y += 1.5;
           }
           if (mouse.y > this.y && this.y > this.size * 10) {
-            this.y -= 10;
+            this.y -= 1.5;
           }
         }
 
@@ -92,8 +92,8 @@ const CursorTrail = () => {
         let size = (Math.random() * 2) + 1;
         let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
         let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
-        let directionX = (Math.random() * 2) - 1;
-        let directionY = (Math.random() * 2) - 1;
+        let directionX = (Math.random() * 0.5) - 0.25;
+        let directionY = (Math.random() * 0.5) - 0.25;
         let color = 'rgba(34, 211, 238, 0.4)'; // Cyan-ish
         
         particles.push(new Particle(x, y, directionX, directionY, size, color));
