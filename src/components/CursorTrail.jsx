@@ -1,149 +1,61 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 const CursorTrail = () => {
-  const canvasRef = useRef(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    let animationFrameId;
-    let particles = [];
+    const updateMousePosition = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
     
-    // Mouse tracking
-    const mouse = {
-      x: null,
-      y: null,
-      radius: 150
-    };
-
-    const handleMouseMove = (e) => {
-      mouse.x = e.x;
-      mouse.y = e.y;
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-
-    // Resize handling
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      init();
-    };
-
-    window.addEventListener('resize', resize);
-
-    // Particle class
-    class Particle {
-      constructor(x, y, directionX, directionY, size, color) {
-        this.x = x;
-        this.y = y;
-        this.directionX = directionX;
-        this.directionY = directionY;
-        this.size = size;
-        this.color = color;
-      }
-
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-        ctx.fillStyle = this.color;
-        ctx.fill();
-      }
-
-      update() {
-        // bounce off edges
-        if (this.x > canvas.width || this.x < 0) {
-          this.directionX = -this.directionX;
-        }
-        if (this.y > canvas.height || this.y < 0) {
-          this.directionY = -this.directionY;
-        }
-
-        // collision with mouse
-        let dx = mouse.x - this.x;
-        let dy = mouse.y - this.y;
-        let distance = Math.sqrt(dx * dx + dy * dy);
-
-        if (distance < mouse.radius + this.size) {
-          if (mouse.x < this.x && this.x < canvas.width - this.size * 10) {
-            this.x += 1.5;
-          }
-          if (mouse.x > this.x && this.x > this.size * 10) {
-            this.x -= 1.5;
-          }
-          if (mouse.y < this.y && this.y < canvas.height - this.size * 10) {
-            this.y += 1.5;
-          }
-          if (mouse.y > this.y && this.y > this.size * 10) {
-            this.y -= 1.5;
-          }
-        }
-
-        this.x += this.directionX;
-        this.y += this.directionY;
-        this.draw();
-      }
-    }
-
-    const init = () => {
-      particles = [];
-      let numberOfParticles = (canvas.height * canvas.width) / 10000;
-      for (let i = 0; i < numberOfParticles; i++) {
-        let size = (Math.random() * 2) + 1;
-        let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
-        let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
-        let directionX = (Math.random() * 0.5) - 0.25;
-        let directionY = (Math.random() * 0.5) - 0.25;
-        let color = 'rgba(34, 211, 238, 0.4)'; // Cyan-ish
-        
-        particles.push(new Particle(x, y, directionX, directionY, size, color));
-      }
-    };
-
-    const animate = () => {
-      requestAnimationFrame(animate);
-      ctx.clearRect(0, 0, innerWidth, innerHeight);
-
-      for (let i = 0; i < particles.length; i++) {
-        particles[i].update();
-      }
-      connect();
-    };
-
-    const connect = () => {
-      let opacityValue = 1;
-      for (let a = 0; a < particles.length; a++) {
-        for (let b = a; b < particles.length; b++) {
-          let distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x)) + 
-                         ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
-          if (distance < (canvas.width / 7) * (canvas.height / 7)) {
-            opacityValue = 1 - (distance / 20000);
-            ctx.strokeStyle = `rgba(34, 211, 238, ${opacityValue * 0.2})`; // cyan line glow
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(particles[a].x, particles[a].y);
-            ctx.lineTo(particles[b].x, particles[b].y);
-            ctx.stroke();
-          }
-        }
-      }
-    };
-
-    resize();
-    animate();
-
+    window.addEventListener('mousemove', updateMousePosition);
+    
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('resize', resize);
-      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener('mousemove', updateMousePosition);
     };
   }, []);
 
   return (
-    <canvas 
-      ref={canvasRef} 
-      className="fixed top-0 left-0 w-full h-full pointer-events-none z-0" 
-    />
+    <>
+      {/* Primary glowing orb following the cursor */}
+      <motion.div
+        className="fixed top-0 left-0 w-96 h-96 rounded-full pointer-events-none z-0 mix-blend-screen"
+        style={{
+          background: 'radial-gradient(circle, rgba(34,211,238,0.15) 0%, rgba(59,130,246,0.05) 40%, rgba(0,0,0,0) 70%)',
+          filter: 'blur(40px)',
+        }}
+        animate={{
+          x: mousePosition.x - 192, // center the 384px (w-96) orb
+          y: mousePosition.y - 192,
+        }}
+        transition={{
+          type: "spring",
+          damping: 40,
+          stiffness: 250,
+          mass: 0.5
+        }}
+      />
+      
+      {/* Secondary smaller, faster orb for a dynamic core effect */}
+      <motion.div
+        className="fixed top-0 left-0 w-32 h-32 rounded-full pointer-events-none z-0 mix-blend-screen"
+        style={{
+          background: 'radial-gradient(circle, rgba(34,211,238,0.4) 0%, rgba(0,0,0,0) 70%)',
+          filter: 'blur(20px)',
+        }}
+        animate={{
+          x: mousePosition.x - 64, // center the 128px (w-32) orb
+          y: mousePosition.y - 64,
+        }}
+        transition={{
+          type: "spring",
+          damping: 25,
+          stiffness: 400,
+          mass: 0.2
+        }}
+      />
+    </>
   );
 };
 

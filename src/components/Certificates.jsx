@@ -29,18 +29,23 @@ const Certificates = () => {
           {certificates.map((cert, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="glass p-6 rounded-2xl flex items-start gap-4 hover:bg-surface/60 transition-colors border border-white/5 hover:border-cyan-400/30 group"
+              className="relative p-[1px] rounded-2xl overflow-hidden group"
             >
-              <div className="p-3 bg-cyan-500/10 rounded-xl group-hover:bg-cyan-500/20 transition-colors">
-                <Award className="w-6 h-6 text-cyan-400" />
+              {/* Gradient reveal background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/0 via-cyan-400/0 to-blue-500/0 group-hover:from-cyan-400/50 group-hover:via-cyan-400/20 group-hover:to-blue-500/50 transition-all duration-500" />
+              
+              <div className="relative h-full bg-[#0B0F19] p-6 rounded-2xl flex items-start gap-5 border border-white/5 group-hover:border-transparent transition-colors z-10">
+                <div className="p-3 bg-cyan-500/10 rounded-xl group-hover:bg-cyan-400 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.6)] transition-all duration-300 shrink-0">
+                  <Award className="w-6 h-6 text-cyan-400 group-hover:text-[#0B0F19] transition-colors" />
+                </div>
+                <p className="text-gray-300 leading-relaxed group-hover:text-white transition-colors">
+                  {cert}
+                </p>
               </div>
-              <p className="text-gray-300 leading-relaxed group-hover:text-white transition-colors">
-                {cert}
-              </p>
             </motion.div>
           ))}
         </div>

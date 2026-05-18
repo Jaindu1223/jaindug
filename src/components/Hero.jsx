@@ -61,14 +61,14 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <p className="text-xl text-cyan-400 font-medium mb-4 tracking-wide uppercase">Hello, It's Me</p>
+            <p className="text-sm md:text-base text-cyan-400 font-bold tracking-[0.3em] uppercase mb-4">Hello, It's Me</p>
             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-4">
               Jaindu Gajanayake
             </h1>
-            
-            <div className="text-2xl md:text-4xl font-bold flex flex-wrap justify-center lg:justify-start items-center gap-3">
-              <span>And I'm a</span>
-              <Typewriter words={roles} />
+
+            <div className="text-2xl md:text-4xl flex flex-wrap justify-center lg:justify-start items-center gap-3">
+              <span className="font-medium text-gray-300">And I'm a</span>
+              <span className="font-bold"><Typewriter words={roles} /></span>
             </div>
 
             <p className="mt-8 text-lg text-gray-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
@@ -98,7 +98,7 @@ const Hero = () => {
               </a>
             </div>
 
-            <a 
+            <a
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
@@ -117,16 +117,38 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.2 }}
           className="flex-1 flex justify-center lg:justify-end relative"
         >
-          <motion.div 
-            className="relative w-72 h-72 md:w-[450px] md:h-[450px] rounded-full p-1.5 bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 backdrop-blur-3xl shadow-[0_0_80px_rgba(34,211,238,0.2)]"
+          {/* Pulsing Back Glow */}
+          <motion.div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 md:w-[450px] md:h-[450px] bg-cyan-400/20 rounded-full blur-[80px] pointer-events-none"
+            animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          />
+
+          {/* Floating and Rotating Border */}
+          <motion.div
+            className="relative w-72 h-72 md:w-[450px] md:h-[450px] rounded-full p-[2px]"
             animate={{ y: [-15, 15, -15] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           >
-            <div className="w-full h-full rounded-full overflow-hidden bg-[#0B0F19] flex items-center justify-center relative group cursor-pointer border-4 border-[#0B0F19]">
-              <img 
-                src="/profile.png" 
+            {/* Spinning Gradient Ring */}
+            <motion.div
+              className="absolute inset-0 rounded-full bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+            />
+
+            {/* Circular Image Container */}
+            <div
+              className="w-full h-full rounded-full overflow-hidden bg-[#0B0F19] flex items-center justify-center relative group cursor-pointer border-[3px] border-[#0B0F19] z-10 shadow-[0_0_40px_rgba(34,211,238,0.4)]"
+              style={{ clipPath: 'circle(50% at 50% 50%)', transform: 'translateZ(0)', isolation: 'isolate' }}
+            >
+              {/* Inner Glow on Hover */}
+              <div className="absolute inset-0 bg-cyan-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay z-20" />
+
+              <img
+                src="/profile1.png"
                 alt="Jaindu Gajanayake"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                className="absolute inset-0 w-full h-full object-cover rounded-full transition-all duration-700 ease-out group-hover:scale-110 group-hover:rotate-3"
               />
             </div>
           </motion.div>

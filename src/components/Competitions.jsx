@@ -105,34 +105,36 @@ const Competitions = () => {
                 key={idx}
                 variants={itemVariants}
                 whileHover={{ scale: 1.02 }}
-                className="glass-card rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 group cursor-default overflow-hidden relative"
+                className="relative p-[1px] rounded-2xl overflow-hidden group cursor-default"
               >
-                {/* Subtle animated background gradient on hover */}
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 via-cyan-500/5 to-cyan-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
+                {/* Gradient border reveal on hover */}
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/0 via-cyan-400/0 to-blue-500/0 group-hover:from-cyan-400/50 group-hover:via-cyan-400/20 group-hover:to-blue-500/50 transition-all duration-500" />
+                
+                <div className="relative h-full bg-[#0B0F19] rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border border-white/5 group-hover:border-transparent transition-colors z-10">
+                  <div className="flex items-center gap-6 relative z-10">
+                    <div className={`p-4 rounded-full ${comp.bg} flex items-center justify-center shrink-0 group-hover:bg-cyan-400 transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.6)]`}>
+                      <Icon className={`w-8 h-8 ${comp.color} group-hover:text-[#0B0F19] transition-colors`} />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-1 group-hover:text-cyan-400 transition-colors">
+                        {comp.name}
+                      </h3>
+                      {comp.org && (
+                        <p className="text-sm text-gray-400">
+                          {comp.org}
+                        </p>
+                      )}
+                    </div>
+                  </div>
 
-                <div className="flex items-center gap-6 relative z-10">
-                  <div className={`p-4 rounded-full ${comp.bg} flex items-center justify-center shrink-0 group-hover:rotate-12 transition-transform duration-300`}>
-                    <Icon className={`w-8 h-8 ${comp.color}`} />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-1 group-hover:text-cyan-400 transition-colors">
-                      {comp.name}
-                    </h3>
-                    {comp.org && (
-                      <p className="text-sm text-gray-400">
-                        {comp.org}
-                      </p>
-                    )}
-                  </div>
+                  {comp.place && (
+                    <div className="relative z-10 ml-auto sm:ml-0 self-start sm:self-center shrink-0">
+                      <span className={`px-4 py-2 rounded-full text-sm font-bold border border-white/10 ${comp.place === '1st Place' ? 'bg-yellow-400/20 text-yellow-400 border-yellow-400/30' : 'bg-surface text-gray-300'}`}>
+                        {comp.place}
+                      </span>
+                    </div>
+                  )}
                 </div>
-
-                {comp.place && (
-                  <div className="relative z-10 ml-auto sm:ml-0 self-start sm:self-center shrink-0">
-                    <span className={`px-4 py-2 rounded-full text-sm font-bold border border-white/10 ${comp.place === '1st Place' ? 'bg-yellow-400/20 text-yellow-400 border-yellow-400/30' : 'bg-surface text-gray-300'}`}>
-                      {comp.place}
-                    </span>
-                  </div>
-                )}
               </motion.div>
             );
           })}

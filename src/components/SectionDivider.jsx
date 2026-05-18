@@ -3,14 +3,15 @@ import { motion } from 'framer-motion';
 
 const SectionDivider = () => {
   return (
-    <div className="w-full max-w-6xl mx-auto py-24 px-6 relative z-10 flex justify-center">
-      <motion.div 
-        initial={{ scaleX: 0, opacity: 0 }}
-        whileInView={{ scaleX: 1, opacity: 1 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
-        className="h-[2px] w-full bg-gradient-to-r from-transparent via-cyan-400 to-transparent origin-left shadow-[0_0_20px_rgba(34,211,238,0.8)]"
-      />
+    <div className="w-full py-102 relative z-10 flex justify-center items-center">
+      <div className="relative w-full h-[1px] bg-white/10 overflow-hidden">
+        {/* Animated glowing streak running across the line */}
+        <motion.div 
+          animate={{ x: ['-100%', '400%'] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+          className="absolute top-0 left-0 h-full w-1/4 bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_15px_rgba(34,211,238,0.8)]"
+        />
+      </div>
     </div>
   );
 };

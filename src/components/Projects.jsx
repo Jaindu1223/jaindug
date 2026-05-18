@@ -8,10 +8,10 @@ const projects = [
     title: "SmartScale Auto-Scaling System",
     category: "Others",
     categories: ["Others"],
-    image: "/smartscale1.png", // Tell me the exact image name you put in the public folder!
+    image: "/smartscale1.png",
     description: "An AI-driven serverless machine learning pipeline featuring a dual-AI approach (MLP and LSTM) for accurate traffic forecasting and optimal RAM sizing. Integrated Boto3 for AWS Lambda concurrency management.",
     link: "https://github.com",
-    demoLink: "https://youtu.be/ImJ2CNZL0gA?si=HY9AC3RJqwRFM1I6", // Paste your YouTube link here
+    demoLink: "https://youtu.be/ImJ2CNZL0gA?si=HY9AC3RJqwRFM1I6",
     tags: ["Python", "AWS Lambda", "ECS", "Docker", "Streamlit"]
   },
   {
