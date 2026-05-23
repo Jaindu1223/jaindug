@@ -273,7 +273,7 @@ const Projects = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+              className="fixed inset-0 z-[100] flex items-center justify-center p-4 pt-24 sm:p-6 sm:pt-28"
             >
               {/* Backdrop */}
               <motion.div
@@ -287,7 +287,7 @@ const Projects = () => {
                 animate={{ scale: 1, y: 0, rotateX: 0 }}
                 exit={{ scale: 0.9, y: 50, rotateX: -20 }}
                 transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                className="relative w-full max-w-3xl bg-[#0B0F19] rounded-3xl overflow-hidden shadow-2xl border border-cyan-400/20"
+                className="relative w-full max-w-3xl max-h-[85vh] bg-[#0B0F19] rounded-3xl overflow-y-auto overflow-x-hidden shadow-2xl border border-cyan-400/20"
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <button
@@ -306,8 +306,8 @@ const Projects = () => {
                   />
                 </div>
 
-                <div className="p-8 sm:p-10 relative z-20 -mt-20">
-                  <h3 className="text-3xl sm:text-4xl font-extrabold text-white mb-4 drop-shadow-lg">
+                <div className="p-6 sm:p-10 relative z-20 -mt-16 sm:-mt-20">
+                  <h3 className="text-2xl sm:text-4xl font-extrabold text-white mb-4 drop-shadow-lg leading-tight">
                     {selectedProject.title}
                   </h3>
 
@@ -322,11 +322,11 @@ const Projects = () => {
                     ))}
                   </div>
 
-                  <p className="text-gray-300 text-lg leading-relaxed mb-8">
+                  <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-8">
                     {selectedProject.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-4">
+                  <div className="flex flex-col sm:flex-row flex-wrap gap-4">
                     {selectedProject.link && (
                       <a
                         href={selectedProject.link}
