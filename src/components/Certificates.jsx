@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Award } from 'lucide-react';
 
 const certificates = [
+  "LinkedIn Learning Certificate of Swift 6 Essential Training",
   "LinkedIn Learning Certificate of JavaScript Essential Training",
   "LinkedIn Learning Certificate of Figma for UX Design by Eric Nordquist",
   "Participant - API Development and Postman Hands-on Learning workshop at Fidenz Academy",
